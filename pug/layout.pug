@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="css/style.css")
+
+header.header
+    .header__content
+        .header__left
+            a.header__logo(href="#")
+                img(src="img/logo-header.svg", alt="")
+
+            .header__menu
+                nav.nav
+                    ul.navbar
+                        li.navbar__item
+                            a.navbar__link(href="#") Торговля
+                        li.navbar__item
+                            a.navbar__link.active(href="#") Рынки
+                        li.navbar__item
+                            a.navbar__link(href="#") Клиентам
+                        li.navbar__item
+                            a.navbar__link(href="#") О нас
+        .header__right
+            .drop
+                .drop__name
+                .drop__list
+                    .drop__item RU
+                    .drop__item ENG
+                    .drop__item RU
+                    .drop__item ENG
+            button.btn.lk-button(type="button") Войти
+
+
+
+
+main.main
+    block content
+
+footer.footer
+    // begin footer
+    section#footer.footer.section
+        .container_center
+            .footer__content
+                ul
+                    li
+                        a(href="#company") О нас
+                    li
+                        a(href="#product") Каталог
+                    li
+                        a(href="#form") Стоимость
+
+
+            .footer__bottom
+                .bottom__content
+                    a.footer__link(href="tel: +7 777 023 23 03") +7 777 023 23 03
+                .bottom__content.insta__box
+                    img.insta__img(src="images/insta.png", alt="")
+                    a.footer__link(href="https://www.instagram.com/accounts/login/?next=/gazovichkoff/") Мы в Instagram
+                .bottom__content 
+                    a.footer__link(href="https://yandex.ru/maps/163/nur-sultan/house/Y0gYcgNjSEYGQFtrfX10dXpkYg==/?ll=71.443131%2C51.154676&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=17", target="_blank") г. Нур-Султан, ул. Таха Хусейна, д. 5
+
+                .bottom__content © GAZOVICHKOFF — Все права защищены 
+
+
+
+
+
+
+    // end footer
+    block footer
+
+script(src="js/jquery.js")
+script(src="js/slick.min.js")
+script(src="js/modal.js")
+script(src="js/script.js")
