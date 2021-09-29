@@ -7,49 +7,12 @@ html(lang="en")
         title Document
         link(rel="stylesheet", href="css/style.css")
     body
-
-        header.header
-            .header__content
-                .header__left
-                    a.header__logo(href="#")
-                        img(src="img/logo-header.svg", alt="")
-
-                    .header__menu
-                        nav.nav
-                            ul.navbar
-                                li.navbar__item
-                                    a.navbar__link(href="#") Торговля
-                                li.navbar__item
-                                    a.navbar__link.active(href="#") Рынки
-                                li.navbar__item
-                                    a.navbar__link(href="#") Клиентам
-                                li.navbar__item
-                                    a.navbar__link(href="#") О нас
-                .header__right
-                    .drop
-                        .drop__name
-                        .drop__list
-                            .drop__item RU
-                            .drop__item ENG
-                            .drop__item RU
-                            .drop__item ENG
-                    button.btn.lk-button(type="button") Войти
-
-
-
+        include header.pug
 
         main.main
             block content
 
-        footer.footer
-            // begin footer
-            section#footer.footer.section
-                .container_center
-                    .footer__content
-
-
-            // end footer
-            block footer
+        include footer.pug
 
         script(src="js/jquery.js")
         script(src="js/slick.min.js")
