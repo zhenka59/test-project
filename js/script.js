@@ -52,3 +52,13 @@ function footerButton() {
     }
 }
 footerButton();
+
+function mobMenu() {
+    const nav = $( '.navbar' );
+    if ( isXsWidth() ) {
+        nav.appendTo( '.header__mobile' );
+    } else {
+        nav.appendTo( '.nav' );
+    }
+}
+mobMenu();
