@@ -41,7 +41,49 @@ function isTouch() {
     return app.touchDevice();
 } // for touch device
 
-toggleAccordion();
+
+$( document ).ready( function () {
+    // Хак для клика по ссылке на iOS
+    if ( isIOS() ) {
+        $( function () {
+            $( document ).on( 'touchend', 'a', $.noop )
+        } );
+    }
+
+    // Запрет "отскока" страницы при клике по пустой ссылке с href="#"
+    $( '[href="#"]' ).click( function ( event ) {
+        event.preventDefault();
+    } );
+
+    // Inputmask.js
+    // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
+    // formSubmit();
+
+    checkOnResize();
+
+} );
+
+$( window ).resize( function () {
+    var windowWidth = $( window ).width();
+    // Запрещаем выполнение скриптов при смене только высоты вьюпорта (фикс для скролла в IOS и Android >=v.5)
+    if ( app.resized == windowWidth ) {
+        return;
+    }
+    app.resized = windowWidth;
+
+    checkOnResize();
+} );
+
+
+function checkOnResize() {
+    toggleAccordion();
+    footerButton();
+    mobMenu();
+    initAdwantSliders();
+
+
+}
+checkOnResize();
 
 function footerButton() {
     const btn = $( '.footer__button' );
@@ -51,7 +93,6 @@ function footerButton() {
         btn.appendTo( '.footer__action' );
     }
 }
-footerButton();
 
 function mobMenu() {
     const nav = $( '.navbar' );
@@ -61,4 +102,31 @@ function mobMenu() {
         nav.appendTo( '.nav' );
     }
 }
-mobMenu();
+
+$('.close').on('click',  function() {
+    $('.header__mobile').css('left', '-300px');
+});
+
+$('.burger').on('click', function() {
+    $('.header__mobile').css('left', '0px');
+});
+
+$('.navbar__link').on('click', function() {
+    $('.header__mobile').css('left', '-300px');
+});
+
+
+function initAdwantSliders() {
+    const slider = $( '.advantage__slider:not(.slick-initialized)' ),
+        sliderMob = $( '.advantage__slider.slick-initialized' );
+
+    if ( isXsWidth() ) {
+        slider.slick( {
+            dots: true,
+            arrows: false,
+        } );
+    } else {
+        sliderMob.slick( 'destroy' );
+    }
+
+}

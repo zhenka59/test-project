@@ -48,8 +48,13 @@ h2 {
 .section {
     &__title {
         font-weight: 500;
-        font-size: 2em;
-        line-height: 1;
+        line-height: 1.2;
+        font-size: 1.125em;
+
+        @media (min-width: 768px) {
+            font-size: 2em;
+
+        }
 
     }
 
@@ -132,12 +137,13 @@ textarea:focus::-webkit-input-placeholder {
     width: 100%;
 
     &__content {
+        position: relative;
         max-width: 105em;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5625em 6.25em;
+        padding: 1.5625em 1.25em;
 
     }
 
@@ -151,8 +157,7 @@ textarea:focus::-webkit-input-placeholder {
     }
 
     &__logo {
-        width: 6.25em;
-        height: 6.375em;
+        max-width: 6.25em;
     }
 
     &__menu {
@@ -166,7 +171,31 @@ textarea:focus::-webkit-input-placeholder {
     &__right {}
 
     &__mobile {
-        position: relative;
+        position: fixed;
+        display: block;
+        top: 10px;
+        // left: 0;
+        left: -300px;
+        bottom: 0;
+        background-color: #fff;
+        color: #000;
+        width: 300px;
+        // height: auto;
+        padding-top: 30px;
+        z-index: 999;
+
+        .close {
+            display: none;
+            @media (max-width: 767px) {
+                width: 10px;
+                height: 10px;
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 10px;
+            }
+        }
+
     }
 
 }
@@ -180,17 +209,7 @@ textarea:focus::-webkit-input-placeholder {
 
         flex-direction: column;
         justify-content: flex-start;
-        position: absolute;
-        top: 0;
-
-        left: 0;
-        left: -300px;
-        bottom: 0;
         background-color: #fff;
-        color: #000;
-        width: 300px;
-        height: auto;
-        padding-top: 30px;
     }
     display: flex;
     justify-content: space-between;
@@ -258,15 +277,23 @@ textarea:focus::-webkit-input-placeholder {
 
     &__title {
         font-weight: 500;
-        font-size: 2.5em;
         line-height: 1.3;
+        font-size: 1.625em;
+        @media (min-width: 768px) {
+            font-size: 2.5em;
+
+        }
     }
 
     &__subtitle {
-        font-size: 1em;
+        font-size: 0.75em;
         line-height: 1.75;
         max-width: 31.25em;
         padding-top: 1.5em;
+        @media (min-width: 768px) {
+            font-size: 1em;
+
+        }
     }
 
     &__action {
@@ -303,22 +330,23 @@ textarea:focus::-webkit-input-placeholder {
     background-color: #F4F4F4;
 
     &__contentBox {
-        padding: 9.375em 0;
-    }
+        padding: 3.5em 0;
+        @media (min-width: 768px) {
+            padding: 9.375em 0;
 
-    &__content {
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
-        padding-top: 3.375em;
-        @media (max-width: 991px) {
-            flex-direction: column;
         }
     }
 
-    &__left {
-        max-width: 26.75em;
-        width: 100%;
+    &__slider {
+        columns: 3;
+        // display: flex;
+        // align-items: center;
+        // margin: 0 auto;
+        padding-top: 3.375em;
+        @media (max-width: 991px) {
+            columns: 2;
+            // flex-direction: column;
+        }
     }
 
     &__item {
@@ -327,8 +355,14 @@ textarea:focus::-webkit-input-placeholder {
         min-height: 17.1875em;
         padding-top: 3.375em;
         padding-left: 2em;
-        display: flex;
-        flex-direction: column;
+        display: block;
+        // max-width: 260px;
+        width: 100%;
+        @media (min-width: 768px) {
+            flex-direction: column;
+            display: flex;
+        }
+
     }
 
     &__name {
@@ -344,36 +378,44 @@ textarea:focus::-webkit-input-placeholder {
         color: #b4b4b4;
         padding-top: 0.625em;
         max-width: 18.75em;
-        display: flex;
-        flex-grow: 1;
+        padding-bottom: 1.5em;
+        // display: flex;
+        // flex-grow: 1;
     }
 
     &__icon {
+        padding-top: 1.5em;
         padding-bottom: 1.5em;
     }
 
-    &__center {
-        max-width: 33.6875em;
-        min-height: 34.375em;
-        width: 100%;
-        @media (max-width: 991px) {
-            order: -1;
-        }
-    }
+    &__imgBox {}
 
     &__img {
-        margin-top: -9.5em;
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
     }
 
-    &__right {
-        max-width: 26.75em;
-        width: 100%;
-    }
+    // &__center {
+    //     max-width: 33.6875em;
+    //     min-height: 34.375em;
+    //     width: 100%;
+    //     @media (max-width: 991px) {
+    //         order: -1;
+    //     }
+    // }
 
 }
 
 .advantage__item-center {
-    // position: relative;
+    position: relative;
+    min-height: 550px;
+    @media (max-width: 991px) {
+        min-width: 552px;
+        min-height: 224px;
+
+    }
+
 }
 
 // **************************************************************************************************
@@ -551,7 +593,11 @@ textarea:focus::-webkit-input-placeholder {
         align-items: center;
         @media (max-width: 991px) {
             display: block;
-            max-width: 18em;
+        }
+
+        @media (max-width: 767px) {
+            max-width: 14.4875em;
+
         }
     }
 
@@ -569,6 +615,11 @@ textarea:focus::-webkit-input-placeholder {
             @media (max-width: 991px) {
                 max-width: none;
                 padding-bottom: 0.4375em;
+
+            }
+
+            @media (max-width: 767px) {
+                font-size: 9px;
             }
 
         }
@@ -576,6 +627,11 @@ textarea:focus::-webkit-input-placeholder {
 
     &__icon {
         margin: 0 0.3125em;
+
+        @media (max-width: 767px) {
+            margin-left: 0;
+        }
+
     }
 
     &__contacts {
@@ -587,10 +643,15 @@ textarea:focus::-webkit-input-placeholder {
     &__action {
         @media (max-width: 767px) {
             display: block;
+            max-width: 187px;
         }
     }
 
-    &__button {}
+    &__button {
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
 
     &__linkBox {
         display: flex;
