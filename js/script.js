@@ -7,7 +7,9 @@ function toggleAccordion() {
         $( this ).toggleClass( 'open' );
 
     } );
+
 }
+toggleAccordion();
 var app = {
     pageScroll: '',
     lgWidth: 1200,
@@ -76,10 +78,10 @@ $( window ).resize( function () {
 
 
 function checkOnResize() {
-    toggleAccordion();
     footerButton();
     mobMenu();
     initAdwantSliders();
+    headerMobile();
 
 
 }
@@ -103,17 +105,20 @@ function mobMenu() {
     }
 }
 
-$('.close').on('click',  function() {
-    $('.header__mobile').css('left', '-300px');
-});
+function headerMobile() {
+    $( '.close' ).on( 'click', function () {
+        $( '.header__mobile' ).css( 'left', '-300px' );
+    } );
 
-$('.burger').on('click', function() {
-    $('.header__mobile').css('left', '0px');
-});
+    $( '.burger' ).on( 'click', function () {
+        $( '.header__mobile' ).css( 'left', '0px' );
+    } );
 
-$('.navbar__link').on('click', function() {
-    $('.header__mobile').css('left', '-300px');
-});
+    $( '.navbar__link' ).on( 'click', function () {
+        $( '.header__mobile' ).css( 'left', '-300px' );
+    } );
+
+}
 
 
 function initAdwantSliders() {
